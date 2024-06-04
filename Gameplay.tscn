@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1xvv0jfdbsrc"]
+
+[ext_resource type="PackedScene" uid="uid://dffedgd1pnfim" path="res://keyboard.tscn" id="1_7pba6"]
+[ext_resource type="Script" path="res://Scripts/EnemySpawner.gd" id="1_g4c7m"]
+[ext_resource type="Script" path="res://Scripts/Gameplay.gd" id="1_x4fm3"]
+[ext_resource type="Script" path="res://Scripts/ScoreDisplay.gd" id="2_reqq5"]
+
+[node name="GameScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_x4fm3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(270, 600)
+
+[node name="Spawner" type="Control" parent="." node_paths=PackedStringArray("particleParent")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4c7m")
+particleParent = NodePath("../Particles")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.625
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.881937, 0.881937, 0.881937, 1)
+
+[node name="Particles" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreDisplay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_right = 45.5
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_reqq5")
+
+[node name="Keyboard" parent="." instance=ExtResource("1_7pba6")]
+layout_mode = 1

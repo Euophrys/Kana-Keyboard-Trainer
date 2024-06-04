@@ -1,0 +1,398 @@
+[gd_scene load_steps=7 format=3 uid="uid://dffedgd1pnfim"]
+
+[ext_resource type="Script" path="res://Scripts/HintDisplay.gd" id="1_tefx1"]
+[ext_resource type="Script" path="res://Scripts/Buttons/KanaKey.gd" id="2_phhrf"]
+[ext_resource type="Script" path="res://Scripts/Buttons/Modifier Button.gd" id="3_ktil7"]
+[ext_resource type="Script" path="res://Scripts/Buttons/Backspace Button.gd" id="4_6pdw4"]
+[ext_resource type="Script" path="res://Scripts/Buttons/Enter Button.gd" id="5_hpjb7"]
+[ext_resource type="Script" path="res://Scripts/Health Bar.gd" id="6_6etjv"]
+
+[node name="Keyboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.625
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.38
+
+[node name="InputDisplay" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.14
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keyboard" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.69
+theme_override_constants/separation = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Keyboard"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Hints" type="GridContainer" parent="VBoxContainer/Keyboard/VBoxContainer" node_paths=PackedStringArray("a_hint", "i_hint", "u_hint", "e_hint", "o_hint")]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+script = ExtResource("1_tefx1")
+a_hint = NodePath("Label5")
+i_hint = NodePath("Label4")
+u_hint = NodePath("Label2")
+e_hint = NodePath("Label6")
+o_hint = NodePath("Label8")
+
+[node name="Label" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "う"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "い"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "あ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "え"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "お"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer/Keyboard/VBoxContainer/Hints"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Keyboard/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+color = Color(0.118581, 0.118581, 0.118581, 1)
+
+[node name="Keys" type="GridContainer" parent="VBoxContainer/Keyboard"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="A Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "あ"
+script = ExtResource("2_phhrf")
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Ka Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "か"
+script = ExtResource("2_phhrf")
+kana = ["か", "き", "く", "け", "こ"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Sa Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "さ"
+script = ExtResource("2_phhrf")
+kana = ["さ", "し", "す", "せ", "そ"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Ta Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "た"
+script = ExtResource("2_phhrf")
+kana = ["た", "ち", "つ", "て", "と"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Na Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "な"
+script = ExtResource("2_phhrf")
+kana = ["な", "に", "ぬ", "ね", "の"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Ha Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "は"
+script = ExtResource("2_phhrf")
+kana = ["は", "ひ", "ふ", "へ", "ほ"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Ma Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "ま"
+script = ExtResource("2_phhrf")
+kana = ["ま", "み", "む", "め", "も"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Ya Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "や"
+script = ExtResource("2_phhrf")
+kana = ["や", "（", "ゆ", "）", "よ"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Ra Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "ら"
+script = ExtResource("2_phhrf")
+kana = ["ら", "り", "る", "れ", "ろ"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Modifier Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+action_mode = 0
+script = ExtResource("3_ktil7")
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Label" type="Label" parent="VBoxContainer/Keyboard/Keys/Modifier Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -39.5
+offset_right = 51.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 40
+text = "゛  ゜"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/Keyboard/Keys/Modifier Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -10.5
+offset_right = 50.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "大↔小"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wa Button" type="Button" parent="VBoxContainer/Keyboard/Keys" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+keep_pressed_outside = true
+text = "わ"
+script = ExtResource("2_phhrf")
+kana = ["わ", "を", "ん", "ー", "～"]
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Button12" type="Button" parent="VBoxContainer/Keyboard/Keys"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Keyboard"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Backspace Button" type="Button" parent="VBoxContainer/Keyboard/VBoxContainer2" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+text = "⌫"
+script = ExtResource("4_6pdw4")
+outputField = NodePath("../../../InputDisplay")
+
+[node name="Enter Button" type="Button" parent="VBoxContainer/Keyboard/VBoxContainer2" node_paths=PackedStringArray("outputField")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 48
+text = "↵"
+script = ExtResource("5_hpjb7")
+outputField = NodePath("../../../InputDisplay")
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.17
+color = Color(0.114897, 0.114897, 0.114897, 1)
+
+[node name="Health Bar" type="ColorRect" parent="VBoxContainer/ColorRect" node_paths=PackedStringArray("healthText")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.638675, 0, 0.0148746, 1)
+script = ExtResource("6_6etjv")
+healthText = NodePath("../Health Text")
+
+[node name="Health Text" type="Label" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "10 / 10"
+horizontal_alignment = 1
+vertical_alignment = 1

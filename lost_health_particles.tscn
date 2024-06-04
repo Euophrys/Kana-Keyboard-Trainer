@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cljsdv8g7frlv"]
+
+[ext_resource type="Script" path="res://Scripts/DeathSparks.gd" id="1_aj2n3"]
+
+[sub_resource type="Curve" id="Curve_3c4lo"]
+_data = [Vector2(0, 1), 0.0, -0.048045, 0, 0, Vector2(0.973404, 0.010989), -3.52424, 0.0, 0, 0]
+point_count = 2
+
+[node name="LostHealthParticles" type="CPUParticles2D"]
+emitting = false
+amount = 40
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.65
+emission_shape = 3
+emission_rect_extents = Vector2(10, 50)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_3c4lo")
+color = Color(0.684274, 0, 0.0665497, 1)
+hue_variation_min = -0.25
+hue_variation_max = 0.25
+script = ExtResource("1_aj2n3")

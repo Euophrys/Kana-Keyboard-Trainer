@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwd84104u3p7x"]
+
+[ext_resource type="Script" path="res://Scripts/SpeedSlider.gd" id="1_38crq"]
+[ext_resource type="Script" path="res://Scripts/Buttons/HiraganaPool.gd" id="2_ef8c3"]
+[ext_resource type="Script" path="res://Scripts/HiScore.gd" id="2_tf2ne"]
+[ext_resource type="Script" path="res://Scripts/Buttons/WordPool.gd" id="3_286fk"]
+[ext_resource type="Script" path="res://Scripts/Buttons/KanjiPool.gd" id="4_1tlm6"]
+[ext_resource type="Script" path="res://Scripts/Buttons/SceneChangeButton.gd" id="6_wlgv6"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_a5iq6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Space3" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 42
+text = "Swipe Kana
+Keyboard
+Trainer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space4" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Targets" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Targets"
+horizontal_alignment = 1
+
+[node name="HiScores" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Hi Score"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+button_pressed = true
+button_group = SubResource("ButtonGroup_a5iq6")
+script = ExtResource("2_ef8c3")
+
+[node name="Hiragana" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 32
+text = "Hiragana"
+vertical_alignment = 1
+
+[node name="HiraganaScore" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("2_tf2ne")
+scoreKey = "hiragana"
+
+[node name="CheckButton2" type="CheckButton" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+button_group = SubResource("ButtonGroup_a5iq6")
+script = ExtResource("3_286fk")
+
+[node name="Words" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 32
+text = "Hiragana Words"
+vertical_alignment = 1
+
+[node name="WordsScore" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("2_tf2ne")
+scoreKey = "words"
+
+[node name="CheckButton3" type="CheckButton" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+button_group = SubResource("ButtonGroup_a5iq6")
+script = ExtResource("4_1tlm6")
+
+[node name="Kanji" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 32
+text = "Kanji
+"
+vertical_alignment = 1
+
+[node name="KanjiScore" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("2_tf2ne")
+scoreKey = "kanji"
+
+[node name="Space5" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpeedSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+min_value = 0.5
+max_value = 3.0
+step = 0.1
+value = 1.0
+script = ExtResource("1_38crq")
+
+[node name="Label" type="Label" parent="VBoxContainer/SpeedSlider"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -46.0
+offset_right = 241.0
+offset_bottom = -1.0
+theme_override_font_sizes/font_size = 32
+text = "Falling Speed"
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Go!"
+script = ExtResource("6_wlgv6")
+targetScenePath = "res://Gameplay.tscn"
+
+[node name="Space" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Space2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(270, 600)
